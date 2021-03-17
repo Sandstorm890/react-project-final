@@ -1,8 +1,20 @@
 const url = 'http://localhost:3000/recipes'
 
 export const addRecipe = (recipe) => ({ type: 'ADDED_RECIPE', payload: recipe})
-
 export const setRecipes = (recipes) => ({type: "GOT_RECIPES", payload: recipes})
+
+export const getRecipes = () => {
+    return (dispatch) => {
+        
+        fetch(url)
+        .then(r => r.json())
+        .then(json => {
+            dispatch(setRecipes(json))
+            console.log(json)
+        })
+    }
+        
+}
 
 export const createRecipe = (recipe) => {
     return (dispatch) => {
@@ -22,14 +34,3 @@ export const createRecipe = (recipe) => {
     }
 }
 
-export const getRecipes = () => {
-    return (dispatch) => {
-        dispatch({type: "LOADING"})
-        fetch(url)
-        .then(r => r.json())
-        .then(json => {
-            dispatch(setRecipes(json))
-        })
-    }
-        
-}
