@@ -1,6 +1,6 @@
 const url = 'http://localhost:3000/recipes'
 
-export const createToy = (recipe) => {
+export const createRecipe = (recipe) => {
     
     const configObj = {
         method: 'POST',
