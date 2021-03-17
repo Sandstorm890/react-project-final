@@ -8,6 +8,7 @@ function RecipeCard(props)  {
             <h4>Category: {props.recipe.category.name}</h4>
             <img src={props.recipe.img_url} className="recipe-image img-thumbnail img-fluid" alt="None"/>
             <p>{props.recipe.description}</p>
+            <p>Stuff</p>
         </div>
     )
 }
