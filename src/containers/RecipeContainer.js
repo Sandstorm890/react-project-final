@@ -1,31 +1,19 @@
 import RecipeCard from '../components/RecipeCard'
 import React from 'react'
+import {connect} from 'react-redux'
+import {getRecipes} from '../actions/recipeActions'
 
 class RecipeContainer extends React.Component {
 
-    state = {
-        recipes: [],
-        search: ""
-    }
-
     createRecipeCards() {
-        
-        const recipes = this.state.recipes
-        return recipes.map(recipe => <RecipeCard recipe={recipe.attributes} id={recipe.id} name={recipe.name} image={recipe.img_url} description={recipe.description}/>)
+        const recipes = this.props.recipes["data"]
+        if (recipes) {
+            return recipes.map(recipe => <RecipeCard recipe={recipe.attributes} id={recipe.id} name={recipe.name} image={recipe.img_url} description={recipe.description}/>)
+        }
     }
 
     componentDidMount() {
-        const url = 'http://localhost:3000/recipes'
-        // const url2 = 'https://www.themealdb.com/api/json/v1/1/search.php?f=a'
-
-        fetch(url)
-        .then(r => r.json())
-        .then(json => {
-            
-            this.setState({
-                recipes: json["data"]
-            })
-        })
+        this.props.getRecipes()
     }
 
     render() {
@@ -37,4 +25,18 @@ class RecipeContainer extends React.Component {
     }
 }
 
-export default RecipeContainer
+const mapStateToProps = (state) => {
+    const recipes = state.recipes
+
+    return {
+        recipes: recipes
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getRecipes: () => dispatch(getRecipes())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer)
