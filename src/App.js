@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import './App.css';
+import RecipeForm from './components/RecipeForm';
 import RecipeContainer from './containers/RecipeContainer'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Recipe Logbook</h1>
+        <RecipeForm />
         <RecipeContainer />
       </div>
     );
