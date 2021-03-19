@@ -28,16 +28,16 @@ class App extends Component {
         <Router>
           <Header />
           <Switch>
-            <Route exact path='/recipes' >
+            <Route exact path="/recipes" >
               <RecipesContainer />
             </Route>
-            <Route exact path='/recipes/new' >
+            <Route path="/recipes/new" >
               <RecipeForm />
             </Route>
             <Route path="/recipes/:id"  component={(routeInfo) => {
                   const id = parseInt(routeInfo.match.params.id)
                   const recipe = !!this.props.recipes.data ? this.props.recipes.data.find(r => parseInt(r.id) === id) : null
-                  return !!recipe ? <RecipeShow routeInfo={routeInfo} recipe={recipe.attributes}/> : <div>Not Found!</div>
+                  return !!recipe ? <RecipeShow routeInfo={routeInfo} recipe={recipe.attributes}/> : <div>Recipe not found</div>
                 }}/>
           </Switch>
         </Router>
