@@ -10,7 +10,6 @@ export const getRecipes = () => {
         .then(r => r.json())
         .then(json => {
             dispatch(setRecipes(json))
-            console.log(json)
         })
     }
         
