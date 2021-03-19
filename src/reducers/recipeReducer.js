@@ -3,7 +3,7 @@ const recipeReducer = (state = {recipes: []}, action) => {
         case "GOT_RECIPES":
             return {...state, recipes: action.payload}
         case "ADDED_RECIPE":
-            return {...state, recipes: [...state.recipes["data"], action.payload]}
+            return {...state, recipes: [...state.recipes, action.payload]}
         default:
             return state
     }
