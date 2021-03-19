@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import './App.css';
 import RecipeForm from './components/RecipeForm'
-import RecipeContainer from './containers/RecipeContainer'
-import NavBar from './components/NavBar'
+import RecipesContainer from './containers/RecipesContainer'
+import Header from './components/Header'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
@@ -17,11 +17,10 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <h1>Recipe Logbook</h1>
-          <NavBar />
+          <Header />
           <Switch>
             <Route exact path='/recipes' >
-              <RecipeContainer />
+              <RecipesContainer />
             </Route>
             <Route exact path='/recipes/new' >
               <RecipeForm />
