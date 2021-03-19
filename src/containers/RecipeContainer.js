@@ -12,13 +12,13 @@ class RecipeContainer extends React.Component {
     createRecipeCards() {
         const recipes = this.props.recipes["data"]
         if (recipes) {
-            return recipes.map(recipe => <RecipeCard onClick={this.handleClick()} recipe={recipe.attributes} id={recipe.id} name={recipe.name} image={recipe.img_url} description={recipe.description}/>)
+            return recipes.map(recipe => <RecipeCard recipe={recipe.attributes} id={recipe.id} name={recipe.name} image={recipe.img_url} description={recipe.description}/>)
         }
     }
 
-    handleClick = (e) => {
-        // make this render show page
-    }
+    // handleClick = (e) => {
+    //     // make this render show page
+    // }
 
     componentDidMount() {
         this.props.getRecipes()
@@ -27,28 +27,23 @@ class RecipeContainer extends React.Component {
     render() {
         return (
             <div id="recipe-container">
-                <Router>
-                    
-                    <NavBar />
-                        
-
-                    <Switch>
-                        <Route exact path='/recipes'>
-                            {this.createRecipeCards()}
-                        </Route>
-                        <Route exact path='/recipes/new' component={RecipeForm}>
-                            
-                        </Route>
-                        <Route path='/recipes/:id' component={(routeInfo) => {
-                            let recipe
-                            const id = parseInt(routeInfo.match.params.id)
-                            if (this.props.recipes.data) {
-                                recipe = this.props.recipes.data.find(i => parseInt(i.id) === id)
-                            }
-                            return !!recipe ? <RecipeShow routeInfo={routeInfo} recipe={recipe}/> : <p>Recipe Not Found</p>
-                        }}/>
-                    </Switch>
-                </Router>
+                
+                <Switch>
+                    <Route exact path='/recipes'>
+                        {this.createRecipeCards()}
+                    </Route>
+                    <Route exact path='/recipes/new' >
+                        <RecipeForm />
+                    </Route>
+                    <Route path='/recipes/:id' component={(routeInfo) => {
+                        let recipe
+                        const id = parseInt(routeInfo.match.params.id)
+                        if (!!this.props.recipes.data) {
+                            recipe = this.props.recipes.data.find(i => parseInt(i.id) === id)
+                        }
+                        return !!recipe ? <RecipeShow routeInfo={routeInfo} recipe={recipe}/> : <p>Recipe Not Found</p>
+                    }}/>
+                </Switch>
             </div>
         )
     }
