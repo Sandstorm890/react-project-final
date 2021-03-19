@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Recipe Logbook</h1>
-        <RecipeForm />
+        
         <RecipeContainer />
       </div>
     );
