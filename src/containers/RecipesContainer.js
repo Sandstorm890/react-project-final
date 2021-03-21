@@ -7,8 +7,9 @@ class RecipesContainer extends React.Component {
 
     createRecipeCards() {
         const recipes = this.props.recipes.data
+        
         if (recipes) {
-            return recipes.map(recipe => <RecipeCard recipe={recipe.attributes} id={recipe.id} name={recipe.name} image={recipe.img_url} description={recipe.description}/>)
+            return recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe.attributes} id={parseInt(recipe.id)} name={recipe.attributes.name} image={recipe.attributes.img_url} description={recipe.attributes.description}/>)
         }
     }
 

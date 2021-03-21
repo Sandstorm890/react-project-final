@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 
 function RecipeCard(props)  {
-
+    
     return(
         <div id={'recipe-card-' + props.id}>
             <h2>{props.recipe.name}</h2>
