@@ -7,7 +7,8 @@ class RecipeForm extends React.Component {
         name: "",
         image: "",
         description: "",
-        category: ""
+        category: "",
+        message: ""
     }
 
     handleFormChange = (e) => {
@@ -15,8 +16,8 @@ class RecipeForm extends React.Component {
         const value = e.target.value
 
         this.setState({
-            [name]: value,
-        }, () => console.log(this.state))
+            [name]: value
+        })
     }
 
     handleSubmit = (e) => {
@@ -30,7 +31,8 @@ class RecipeForm extends React.Component {
             name: "",
             img_url: "",
             description: "",
-            category_id: ""
+            category_id: "",
+            message: `${recipe.name} was added`
         })
     }
 
@@ -46,6 +48,7 @@ class RecipeForm extends React.Component {
                 <label>Category:</label>
                 <input type="text" name="category_id" onChange={this.handleFormChange} value={this.state.category_id} /><br></br>
                 <input type="submit" value="Add Recipe" />
+                <h4>{this.state.message}</h4>
             </form>
         )
     }
