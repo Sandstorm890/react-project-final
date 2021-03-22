@@ -6,7 +6,6 @@ import { deleteRecipe } from '../actions/recipeActions'
 class RecipeShow extends React.Component {
     
     render() {
-        // debugger
         return(
             <>
                 <RecipeCard recipe={this.props.recipe} id={this.props.id}/>
