@@ -11,8 +11,7 @@ export const getRecipes = () => {
         .then(json => {
             dispatch(setRecipes(json))
         })
-    }
-        
+    }   
 }
 
 export const createRecipe = (recipe) => {
@@ -34,7 +33,6 @@ export const createRecipe = (recipe) => {
 }
 
 export const deleteRecipe = (props) => {
-    // debugger
     return (dispatch) => {
         const configObj = {
             method: 'DELETE',
@@ -46,8 +44,5 @@ export const deleteRecipe = (props) => {
         }
         fetch(url + `/${parseInt(props.id)}`, configObj)
         .then(r => r.json())
-        .then (json => {
-            dispatch(setRecipes(json))
-        })
     }
 }

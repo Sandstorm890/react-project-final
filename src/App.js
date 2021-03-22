@@ -35,11 +35,8 @@ class App extends Component {
               <RecipeForm />
             </Route>
             <Route path="/recipes/:id"  component={(routeInfo) => {
-              // console.log(this.props.recipes.data.id)
-              console.log(routeInfo)
               const id = parseInt(routeInfo.match.params.id)
-              const recipe = !!this.props.recipes.data ? this.props.recipes.data.find(r => parseInt(r.id) === id) : null
-              // console.log(recipe.id)
+              const recipe = !!this.props.recipes ? this.props.recipes.find(r => parseInt(r.id) === id) : null
               return !!recipe ? <RecipeShow routeInfo={routeInfo} id={recipe.id} recipe={recipe.attributes}/> : <div>Recipe not found</div>
             }}/>
           </Switch>
