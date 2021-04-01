@@ -4,7 +4,7 @@ import RecipeForm from './components/RecipeForm'
 import RecipeShow from './components/RecipeShow'
 import RecipesContainer from './containers/RecipesContainer'
 import Header from './components/Header'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import {getRecipes} from './actions/recipeActions'
 
