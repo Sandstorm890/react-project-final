@@ -5,9 +5,9 @@ import {createRecipe} from '../actions/recipeActions'
 class RecipeForm extends React.Component {
     state = {
         name: "",
-        image: "",
+        img_url: "",
         description: "",
-        category: "",
+        category_id: "",
         message: ""
     }
 
@@ -38,7 +38,7 @@ class RecipeForm extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="mt-4">
                 <label>Recipe Name: </label>
                 <input type="text" name="name" onChange={this.handleFormChange} value={this.state.name} /><br></br>
                 <label>Image URL: </label>
