@@ -12,6 +12,7 @@ class Header extends React.Component {
                     <div>
                         <button ><Link to='/recipes'>Home</Link></button>
                         <button ><Link to="/recipes/new">New Recipe</Link></button>
+                        
                     </div>
                 </div>
             </div>
