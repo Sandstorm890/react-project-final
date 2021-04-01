@@ -5,11 +5,30 @@ import {getRecipes} from '../actions/recipeActions'
 
 class RecipesContainer extends React.Component {
 
+    state = {
+        search: ""
+    }
+
+    handleFormChange = (e) => {
+        const value = e.target.value
+        this.setState({
+            search: value
+        })
+        // console.log(this.state.search.length)
+        
+    }
+
     createRecipeCards() {
-        const recipes = this.props.recipes
+        let recipes = this.props.recipes
+
+        if (recipes && this.state.search.length !== 0) {
+            recipes = recipes.filter(recipe => recipe.attributes.name.toLowerCase().includes(this.state.search.toLocaleLowerCase()))
+        } 
+        
         if (recipes) {
             return recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe.attributes} id={parseInt(recipe.id)} name={recipe.attributes.name} image={recipe.attributes.img_url} description={recipe.attributes.description}/>)
         }
+    
     }
 
     componentDidMount() {
@@ -19,6 +38,8 @@ class RecipesContainer extends React.Component {
     render() {
         return (
             <div id="recipe-container">
+                <div className="font-weight-bold">Search:</div>
+                <input type="text" value={this.state.search} onChange={this.handleFormChange}></input>
                 {this.createRecipeCards()}
             </div>
         )
