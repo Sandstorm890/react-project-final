@@ -6,11 +6,13 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <h1>Recipe Logbook</h1>
-                <div>
-                    <Link to='/recipes' >Home</Link><br></br>
-                    <Link to="/recipes/new">New Recipe</Link>
+                <div className="btn-group">
+                    <div>
+                        <button ><Link to='/recipes'>Home</Link></button>
+                        <button ><Link to="/recipes/new">New Recipe</Link></button>
+                    </div>
                 </div>
             </div>
         )
