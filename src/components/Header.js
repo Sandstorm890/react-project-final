@@ -7,12 +7,11 @@ class Header extends React.Component {
     render() {
         return (
             <div >
-                <h1>Recipe Logbook</h1>
+                <h1 className="display-3">Recipe Logbook</h1>
                 <div className="btn-group">
                     <div>
-                        <button ><Link to='/recipes'>Home</Link></button>
-                        <button ><Link to="/recipes/new">New Recipe</Link></button>
-                        
+                        <Link to='/recipes'>Home</Link> |
+                        <Link to="/recipes/new"> New Recipe</Link>
                     </div>
                 </div>
             </div>
