@@ -25,15 +25,20 @@ class RecipeForm extends React.Component {
 
         const recipe = {...this.state}
 
-        this.props.createRecipe(recipe)
-
-        this.setState({
-            name: "",
-            img_url: "",
-            description: "",
-            category_id: "",
-            message: `${recipe.name} was added`
-        })
+        if (this.state.name.length === 0 || this.state.category_id.length === 0) {
+            this.setState({...recipe, message: 'Please enter a name and a category'})
+        } else {
+                this.props.createRecipe(recipe)
+                
+                this.setState({
+                    name: "",
+                    img_url: "",
+                    description: "",
+                    category_id: "",
+                    message: `'${recipe.name}' recipe was added`
+                })
+            }
+          
     }
 
     render() {
