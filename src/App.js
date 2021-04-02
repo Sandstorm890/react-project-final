@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     
     return (
-      <div className="App">
+      <div className="App App-background">
         <Router>
           <Header />
           <Switch>
