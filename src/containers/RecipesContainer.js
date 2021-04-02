@@ -14,8 +14,6 @@ class RecipesContainer extends React.Component {
         this.setState({
             search: value
         })
-        // console.log(this.state.search.length)
-        
     }
 
     createRecipeCards() {
@@ -37,7 +35,7 @@ class RecipesContainer extends React.Component {
 
     render() {
         return (
-            <div id="recipe-container">
+            <div   style={{}} id="recipe-container">
                 <div className="font-weight-bold">Search:</div>
                 <input type="text" value={this.state.search} onChange={this.handleFormChange}></input>
                 {this.createRecipeCards()}
