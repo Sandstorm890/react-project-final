@@ -20,11 +20,11 @@ class RecipesContainer extends React.Component {
         let recipes = this.props.recipes
 
         if (recipes && this.state.search.length !== 0) {
-            recipes = recipes.filter(recipe => recipe.attributes.name.toLowerCase().includes(this.state.search.toLocaleLowerCase()))
+            recipes = recipes.filter(recipe => recipe.strMeal.toLowerCase().includes(this.state.search.toLocaleLowerCase()))
         } 
         
         if (recipes) {
-            return recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe.attributes} id={parseInt(recipe.id)} name={recipe.attributes.name} image={recipe.attributes.img_url} description={recipe.attributes.description}/>)
+            return recipes.map(recipe => <RecipeCard key={parseInt(recipe.idMeal)} recipe={recipe} id={parseInt(recipe.idMeal)} name={recipe.strMeal} image={recipe.strMealThumb} instructions={recipe.strInstructions}/>)
         }
     
     }
