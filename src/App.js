@@ -2,6 +2,7 @@ import { Component } from 'react'
 import './App.css';
 import RecipeForm from './components/RecipeForm'
 import RecipeShow from './components/RecipeShow'
+import RecipeArchiveShow from './components/RecipeArchiveShow'
 import RecipesContainer from './containers/RecipesContainer'
 import Header from './components/Header'
 import { connect } from 'react-redux'
@@ -34,6 +35,15 @@ class App extends Component {
             <Route path="/recipes/new" >
               <RecipeForm />
             </Route>
+            <Route path="/recipes/archive/:id" component={(routeInfo) => {
+              
+              const id = parseInt(routeInfo.match.params.id)
+              const recipe = !!this.props.recipes ? this.props.recipes.find(r => parseInt(r.idMeal) === id) : null
+              // console.log(recipe)
+              return !!recipe ? <RecipeArchiveShow routeInfo={routeInfo} id={recipe.idMeal} recipe={recipe}/> : <div>Recipe not found</div>
+            }}/>
+
+            
             <Route path="/recipes/:id"  component={(routeInfo) => {
               const id = parseInt(routeInfo.match.params.id)
               const recipe = !!this.props.recipes ? this.props.recipes.find(r => parseInt(r.id) === id) : null
