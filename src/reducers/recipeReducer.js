@@ -1,7 +1,8 @@
 const recipeReducer = (state = {recipes: []}, action) => {
     switch(action.type){
+        
         case "GOT_RECIPES":
-            return {...state, recipes: action.payload.data}
+            return {...state, recipes: action.payload.meals}
         case "ADDED_RECIPE":
             return {...state, recipes: [...state.recipes, action.payload.data]}
         case "DELETE_RECIPE":
