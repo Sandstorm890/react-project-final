@@ -1,5 +1,5 @@
 const url = 'http://localhost:3000/recipes'
-const mealUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?f=b'
+const mealUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c'
 
 export const addRecipe = (recipe) => ({ type: 'ADDED_RECIPE', payload: recipe})
 export const setRecipes = (recipes) => ({type: "GOT_RECIPES", payload: recipes})
@@ -9,7 +9,6 @@ export const getRecipes = () => {
     return (dispatch) => {
         fetch(mealUrl)
         .then(r => r.json())
-        
         .then(json => {
             dispatch(setRecipes(json))
         })
