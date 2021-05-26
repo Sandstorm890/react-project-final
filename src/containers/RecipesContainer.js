@@ -37,7 +37,7 @@ class RecipesContainer extends React.Component {
         return (
             <div id="recipe-container">
                 <div className="font-weight-bold">Search:</div>
-                <input type="text" value={this.state.search} onChange={this.handleFormChange}></input><br></br>
+                <input type="text" value={this.state.search} onChange={this.handleFormChange}></input><br></br><br></br>
                 {this.createRecipeCards()}
             </div>
         )
