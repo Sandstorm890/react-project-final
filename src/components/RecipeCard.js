@@ -7,7 +7,7 @@ function RecipeCard(props)  {
         <div id={'recipe-card-' + props.id} class='card'>
             
             <Link to={`/recipes/archive/${props.id}`}><img src={props.image} className="recipe-image photo img-thumbnail img-fluid" alt="Not Found"/></Link>
-            <h2>{props.name}</h2>
+            <h3>{props.name}</h3>
             <br></br><br></br>
         </div>
     )
