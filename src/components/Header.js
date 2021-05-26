@@ -10,8 +10,8 @@ class Header extends React.Component {
                 <h1 className="display-3">Recipe Logbook</h1>
                 <div className="btn-group">
                     <div>
-                        <Link to='/recipes'>Home</Link> |
-                        <Link to="/recipes/new"> New Recipe</Link>
+                        {/* <Link to='/recipes'>Home</Link> |
+                        <Link to="/recipes/new"> New Recipe</Link> */}
                     </div>
                 </div>
             </div>
