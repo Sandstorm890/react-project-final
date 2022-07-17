@@ -1,5 +1,8 @@
 README React Project - Zayne Goering 3/20/2021
 
+Video Walkthrough:
+https://youtu.be/-nJ4Uu7Ef7k
+
 Description:
 
 SPA built using React/Redux. Allows users to upload custom recipes to a database and edit/maintain 
